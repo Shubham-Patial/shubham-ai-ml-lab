@@ -74,7 +74,8 @@ split_number(number)
 
 # Q4
 # Write a function that returns the count of digits in a number n.
-
+def count(n):
+    pass
 # Q5
 # Write a function that returns the sum of digits of a number n.
 
