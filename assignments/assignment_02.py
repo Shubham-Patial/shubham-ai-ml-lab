@@ -32,10 +32,8 @@ def even_num_checker(num_1, num_2):
     end = max(num_1, num_2)
     print(f"Even numbers between {start} and {end} are ----")
     for i in range(start, end + 1):
-        if i%2 != 0:
-            continue
-        else:
-            print(f"{i}")
+        if i % 2 == 0:
+            print(i)
 
 num_1 = int(input("Enter the first number = "))
 num_2 = int(input("Enter the second number = "))
@@ -54,7 +52,7 @@ def split_number(num):
     digits = []
 
     if current_num == 0:
-        print("There is no number to split.....")
+        print("0 cannot be splitt....")
         return
      
     while current_num > 0:
@@ -114,10 +112,12 @@ while flag:
     if choice.lower() == "quit":
         flag = False
         print("You can use our service anytime")
-    elif int(choice) >= 0:
-        print("The entred number is a positive number...")
-    else:
-        print("The entred number is a negative number...")
+    elif choice.isdigit():
+        num = int(choice)
+        if num >= 0:
+            print("The entered number is a positive number...")
+        else:
+            print("The entered number is a negative number...")
 
 # Q8
 # Create a simple calculator function:
@@ -139,6 +139,8 @@ match operation:
         print(f"The multiply of {num_1} and {num_2} is = {num_1 * num_2}")
     case "/":
         print(f"The divison of {num_1} and {num_2} is = {num_1 / num_2}")
+    case _:
+        print("Invalid operation entered.")
 
 # Q9
 # Write a function is_prime(n).
@@ -159,6 +161,8 @@ def is_prime(n):
 
     print(f"{n} is a prime number")
 
+number = int(input("Enter a number to check whether it is prime or not = "))
+is_prime(number)
 # Q10
 # Number Guessing Game:
 # Choose a secret number (hardcoded by you).
@@ -179,3 +183,7 @@ while True:
         print("Correct!")
         break
     
+
+
+
+# Could have used other ways too but I am limited to what is taught in class as these are the practice assignments according to what is taught in class.
