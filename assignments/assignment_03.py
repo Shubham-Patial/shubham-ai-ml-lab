@@ -37,19 +37,30 @@ print(merged_list)
 
 # Q4 – From a tuple: make tuple of evens & tuple of odds
 # Your answer here:
+
 given_tuple = (2,5,3,56, 21, 66, 341, 32, 65, 787, 98)
-even_tuple = ()
-odd_tuple = ()
+even_list = []
+odd_list = []
 for elm in given_tuple:
     if elm % 2 == 0:
-        even_tuple.append(elm)
+        even_list.append(elm)
     else:
-        odd_tuple.append(elm)
+        odd_list.append(elm)
+even_tuple = tuple(even_list)
+odd_tuple = tuple(odd_list)
 print(f"{even_tuple} is an even tuple")
 print(f"{odd_tuple} is an odd tuple")
+
 # Q5 – Dictionary menu program (Add, Update, Search, Display)
 # Your answer here:
 
+words = ["apple", "banana", "kiwi", "cherry", "mango"]
+words_dict = {}
+length = 0
+for word in words:
+    length = len(word)
+    words_dict[word] = length
+print(words_dict)
 
 # Q6 – Dictionary mapping words to their lengths
 # Your answer here:
