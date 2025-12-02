@@ -118,6 +118,8 @@ print(words_dict)
 # Q7 – Count spaces in a string
 # Your answer here:
 
+txt = input("Enter a string: ")
+print("Number of spaces =", txt.count(" "))
 
 # Q8 – Check if two lists share no common elements
 # Your answer here:
