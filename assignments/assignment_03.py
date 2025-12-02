@@ -124,10 +124,36 @@ print("Number of spaces =", txt.count(" "))
 # Q8 – Check if two lists share no common elements
 # Your answer here:
 
+list_1 = list(map(int, input("Enter a couple of integers in list one = ").split()))
+list_2 = list(map(int, input("Enter a couple of integers in list two = ").split()))
+flag = False
+for n in list_2:
+    if n in list_1:
+        flag = True
+
+if flag:    
+    print("Both Lists share common elements")
+else:
+    print("Both Lists share non common elements")
 
 # Q9 – Print elements that appear more than once
 # Your answer here:
 
+given_list = list(input("Enter a couple of integers in list one = ").split())
+empty_list = []
+empty_set = set()
+for elm in given_list:
+    if elm not in empty_list:
+        empty_list.append(elm)
+    else:
+        empty_set.add(elm)
+print(empty_set)
+
+
 
 # Q10 – Print unique characters + count
 # Your answer here:
+
+given_string = input("Enter any string you want to = ")
+unique_string = set(given_string)
+print(f"{unique_string} are unique characters and the count is = {len(unique_string)}")
