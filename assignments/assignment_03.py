@@ -53,6 +53,59 @@ print(f"{odd_tuple} is an odd tuple")
 
 # Q5 – Dictionary menu program (Add, Update, Search, Display)
 # Your answer here:
+def add_student():
+    name = input("Enter the name of the student = ")
+    marks = int(input("Enter the mark of the student = "))
+    student[name] = marks
+    print("Student Added!!")
+
+def update_student():
+    name = input("Enter the name of the student you want to update marks of = ")
+    if name in student:
+        new_marks = int(input("Enter the new mark of the student = "))
+        student[name] = new_marks
+        print("Marks Updated!!")
+    else:
+        print("No student with this name found..")
+
+def search_student():
+    name = input("Enter the name of the student you want to search marks of = ")
+    if name in student:
+        print(f"{name} has {student[name]}")
+    else:
+        print("No student with this name found..")
+
+def display():
+    for name, marks in student.items():
+        print(f"{name} : {marks}")
+
+student ={}
+while True:
+    print("Press A to Add a student")
+    print("Press B to Update marks")
+    print("Press C to Search for a student")
+    print("Press D to Display all data")
+    print("Press E to exit program")
+
+    choice = input("Enter your choice: ").upper()
+
+    match choice:
+
+        case "A":
+            add_student()
+        case "B":
+            update_student()
+        case "C":
+            search_student()
+        case "D":
+            display()
+        case "E":
+            print("Exiting program...")
+            break
+        case _:
+            print("Invalid choice. Try again.")
+# Q6 – Dictionary mapping words to their lengths
+# Your answer here:
 
 words = ["apple", "banana", "kiwi", "cherry", "mango"]
 words_dict = {}
@@ -61,10 +114,6 @@ for word in words:
     length = len(word)
     words_dict[word] = length
 print(words_dict)
-
-# Q6 – Dictionary mapping words to their lengths
-# Your answer here:
-
 
 # Q7 – Count spaces in a string
 # Your answer here:
