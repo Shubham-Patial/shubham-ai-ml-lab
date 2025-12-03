@@ -78,7 +78,16 @@ class Circle(Shape):
 
 # Q5 – Vehicle → Car, Bike (inheritance)
 # Your answer here:
+class Vehicle:
+    def __init__(self, brand, model):
+        self.brand = brand
+        self.model = model
 
+class Car(Vehicle):
+    pass
+
+class Bike(Vehicle):
+    pass
 
 # Q6 – Abstract Employee class + Intern, FullTimeEmployee, ContractEmployee
 # Your answer here:
