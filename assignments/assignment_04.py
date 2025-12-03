@@ -70,7 +70,11 @@ class Student:
 
 # Q4 – Shape class and overridden area() in Circle, Rectangle, Triangle
 # Your answer here:
+class Shape:
+    pass
 
+class Circle(Shape):
+    pass
 
 # Q5 – Vehicle → Car, Bike (inheritance)
 # Your answer here:
