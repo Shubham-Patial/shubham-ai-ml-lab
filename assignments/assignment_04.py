@@ -66,7 +66,9 @@ class Book:
 # Your answer here:
 
 class Student:
-    pass
+    __name = ""
+    __roll_no = 0
+    __marks = 0
 
 # Q4 – Shape class and overridden area() in Circle, Rectangle, Triangle
 # Your answer here:
