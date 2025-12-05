@@ -106,11 +106,38 @@ print(s.getter())
 
 # Q4 – Shape class and overridden area() in Circle, Rectangle, Triangle
 # Your answer here:
-class Shape:
-    pass
+from abc import ABC, abstractmethod
+class Shape(ABC):
+    @abstractmethod
+    def area(self):
+        pass
 
 class Circle(Shape):
-    pass
+    def __init__(self, radius):
+        self.radius = radius
+    def area(self):
+        return 3.14 * self.radius * self.radius
+    
+class Rectangle(Shape):
+    def __init__(self, length, breath):
+        self.length = length
+        self.breath = breath
+    def area(self):
+        return self.length * self.breath
+    
+class Triangle(Shape):
+    def __init__(self, base, height):
+        self.base = base
+        self.height = height
+    def area(self):
+        return 0.5 * self.base * self.height
+    
+c = Circle(5)
+print(c.area)
+r = Rectangle(3, 3)
+print(r.area)
+t = Triangle(5, 5)
+print(t.area)
 
 # Q5 – Vehicle → Car, Bike (inheritance)
 # Your answer here:
@@ -119,15 +146,45 @@ class Vehicle:
         self.brand = brand
         self.model = model
 
+    def __str__(self):
+        return f"{self.brand} ---> {self.model}"
+
 class Car(Vehicle):
-    pass
+    def __init__(self, brand, model, seat):
+        super().__init__(brand, model)
+        self.seat = seat
+
+    def __str__(self):
+        return f"{super().__str__()} --> {self.seat}"
 
 class Bike(Vehicle):
-    pass
+    def __init__(self, brand, model, engine_cc):
+        super().__init__(brand, model)
+        self.engine_cc = engine_cc
+
+    def __str__(self):
+        return f"{super().__str__()} --> {self.engine_cc}"
+    
+c = Car("Porche", "911 GT", 2)
+b = Bike("Yamaha", "R15", 155)
+print(c)
+print(b)
 
 # Q6 – Abstract Employee class + Intern, FullTimeEmployee, ContractEmployee
 # Your answer here:
+class Employee(ABC):
+    @abstractmethod
+    def calculate_salaryI():
+        pass
 
+class Intern(Employee):
+    pass
+
+class FullTimeEmployee(Employee):
+    pass
+
+class ContractEmployer(Employee):
+    pass
 
 # Q7 – Person class (constructor overloading via default params)
 # Your answer here:
