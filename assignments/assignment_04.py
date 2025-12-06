@@ -174,29 +174,118 @@ print(b)
 # Your answer here:
 class Employee(ABC):
     @abstractmethod
-    def calculate_salaryI():
+    def calculate_salaryI(self):
         pass
 
 class Intern(Employee):
-    pass
+    def __init__(self, reward):
+        self.reward = reward
+    def calculate_salaryI(self):
+        return self.reward
 
 class FullTimeEmployee(Employee):
-    pass
+    def __init__(self, monthly_salary):
+        self.monthly_salary = monthly_salary
+    def calculate_salaryI(self):
+        return self.monthly_salary
 
 class ContractEmployer(Employee):
-    pass
+    def __init__(self, hourly_rate, hours):
+        self.hourly_rate = hourly_rate
+        self.hours = hours
+    def calculate_salaryI(self):
+        return self.hourly_rate * self.hours
+        
+intern = Intern(20000)
+fte = FullTimeEmployee(40000)
+ce = ContractEmployer(17.80, 40)
+
+print(f"Salary of intern ---> {intern.calculate_salaryI()}")
+print(f"Salary of fulltimeemployee ---> {fte.calculate_salaryI()}")
+print(f"Salary of contractemployer ---> {ce.calculate_salaryI()}")
 
 # Q7 – Person class (constructor overloading via default params)
 # Your answer here:
 
+class Person:
+    def __init__(self, name, age=None, address=None):
+        self.name = name
+        self.age = age
+        self.address = address
+
+    def display(self):
+        if self.age is None and self.address is None:
+            print("Name: ", self.name)
+        elif self.address is None:
+            print("Name: ", self.name)
+            print("Age: ", self.age)
+        else:
+            print("Name: ", self.name)
+            print("Age: ", self.age)
+            print("Address: ", self.address)
+
+p_1 = Person("Sam")
+p_2 = Person("Sam", 22)
+p_3 = Person("Sam", 22, "Brampton")
+
+p_1.display()
+p_2.display()
+p_3.display()
 
 # Q8 – Player class with class variable to track count
 # Your answer here:
 
+class Player:
+    player_count = 0
+
+    def __init__(self, name, level):
+        self.name = name
+        self.level = level
+        Player.player_count += 1
+
+p_1 = Player("Sam", "B")
+p_2 = Player("Rahul", "C")
+print("Total no of player's created = ", Player.player_count)
 
 # Q9 – Multiple inheritance: Herbivore, Carnivore, Omnivore → Bear
 # Your answer here:
 
+class Herbivore:
+    def __init__(self,nature):
+        self.nature = nature
+    def display(self):
+        return self.nature
 
+class Carnivore:
+    def __init__(self, nature):
+        self.nature = nature
+    def display(self):
+        return self.nature
+class Omnivore:
+    def __init__(self, nature):
+        self.nature = nature
+    def display(self):
+        return self.nature
+class Bear(Herbivore, Carnivore, Omnivore):
+    def __init__(self, nature):
+        super().__init__(nature)
+
+    def setter(self, nature):
+        self.nature = nature
+    def display(self):
+        return f"Bear is {self.nature}"
+
+b = Bear("Omnivore")
+print(b.display())   
+
+b.setter("Herbivore")
+print(b.display())
 # Q10 – Mini OOP Chat System (User, Message, ChatRoom)
 # Your answer here:
+
+class User:
+    pass
+class Message:
+    pass
+class Chatroom:
+    pass5
