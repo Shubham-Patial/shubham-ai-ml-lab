@@ -284,8 +284,61 @@ print(b.display())
 # Your answer here:
 
 class User:
-    pass
+    def __init__(self, username):
+        self.username = username
+
+    def send_message(self, chatroom, content):
+        message = Message(self, content)
+        chatroom.receive_message(message)
+
+
 class Message:
-    pass
-class Chatroom:
-    pass5
+    def __init__(self, sender, content):
+        self.sender = sender
+        self.content = content
+
+    def format_message(self):
+        return f"{self.sender.username}: {self.content}"
+
+
+class ChatRoom:
+    def __init__(self, room_name):
+        self.room_name = room_name
+        self.users = []
+        self.messages = []
+
+    def join(self, user):
+        self.users.append(user)
+        print(f"{user.username} joined {self.room_name}")
+
+    def leave(self, user):
+        if user in self.users:
+            self.users.remove(user)
+            print(f"{user.username} left {self.room_name}")
+
+    def receive_message(self, message):
+        self.messages.append(message)
+        print(message.format_message())
+
+    def view_history(self):
+        print(f"\n--- Chat History of {self.room_name} ---")
+        for msg in self.messages:
+            print(msg.format_message())
+        print("--------------------------------------")
+
+u1 = User("Alice")
+u2 = User("Bob")
+
+room = ChatRoom("Python Room")
+
+room.join(u1)
+room.join(u2)
+
+u1.send_message(room, "Hello!")
+u2.send_message(room, "Hey Alice!")
+
+room.view_history()
+
+room.leave(u2)
+
+
