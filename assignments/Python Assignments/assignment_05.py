@@ -1,5 +1,6 @@
 # --------------------------------------------
 # Assignment 05 – File Handling & JSON (TEMPLATE ONLY)
+# Student: Shubham Patial
 # --------------------------------------------
 # Write ONLY the program structure with comments.
 # Do NOT write the solutions or final code.
@@ -47,6 +48,22 @@ print(new_list)
 # 3. Load the JSON and print each city with its population
 # 4. Ask user for a new city & population and update the JSON file
 
+import json
+
+cities = {
+    "Toronto": 3000000,
+    "Vancouver": 675000,
+    "Calgary": 1230000
+}
+with open("cities.json", "w") as file:
+    json.dump(cities, file, indent = 4)
+
+with open("cities.json", "r") as file:
+    data = json.load(file)
+
+print("Current cities and populations:")
+for city, population in data.items():
+    print(f"{city}: {population}")
 
 # Q5
 # Write a program that:
@@ -54,5 +71,11 @@ print(new_list)
 # 2. If file does not exist, catch the exception
 # 3. Print: "File not found!"
 
+try:
+    with open("data.txt", "r") as file:
+        content = file.read()
+        print(content)
+except FileNotFoundError:
+    print("File not found !")
 
 # END OF ASSIGNMENT TEMPLATE
